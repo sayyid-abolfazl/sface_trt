@@ -25,8 +25,3 @@ add_executable(main main.cpp sface.cpp)
 target_link_libraries(main nvinfer)
 target_link_libraries(main cudart)
 target_link_libraries(main ${OpenCV_LIBS})
-
-add_executable(convert convert.cpp)
-target_link_libraries(convert nvinfer)
-target_link_libraries(convert cudart)
-target_link_libraries(convert nvonnxparser)
