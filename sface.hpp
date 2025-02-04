@@ -11,7 +11,6 @@ class sface {
         sface();
         sface(const std::string engine_file_path);
         void imagePreProcess(cv::Mat& img, cv::Mat& img_resized);   // توابع پیش پردازش که میاد اندازه و کانال رنگی عکس رو تغییر میده آماده میکنه برای مدل
-        void imagePostProcess(float* output, cv::Mat& img);  // اگر خروجی مدلمون تصویر داشته باشد این میاد تصویر رو میسازد آماده میکنه
         void blobFromImage(cv::Mat& img, float* blob); //  این میاد تصاویر رو به اعداد اعشاری تبدیل میکند بین -1 +1 سپس ترتیب چنل رنگ ابعادش رو درست میکنه
         void doInference(IExecutionContext& context, float* input, float* output);   // ارسال ورودی ها به سمت مدل که این میاد محیط اجرای برای استنتاج مدل اجرا میکند 
         std::vector<float> infer(cv::Mat& img);   //  این هم برای دریافت ورودی و سپس نتایجی داشته باشیم برای نمایش به صورت عکس در متغییر دوم ذخیره میشود  
