@@ -112,26 +112,6 @@ void sface::imagePreProcess(cv::Mat& img, cv::Mat& img_resized) {
     cv::resize(img, img_resized, dsize); // فقط اندازه تصویر را تغییر می‌دهیم
 }
 
-// خروجی را تبدیل به عکس میکند که نیازی بهش نداریم
-void sface::imagePostProcess(float* output, cv::Mat& img) {
-    img.create(cv::Size(INPUT_H, INPUT_W), CV_8UC3);
-    for (int i = 0; i < OUTPUT_SIZE; i ++) {
-        int w = i % INPUT_H;
-        int h = (i / INPUT_W) % INPUT_H;
-        int c = i / INPUT_H / INPUT_W;
-
-        float pixel = output[i] * 0.5 + 0.5;
-        if (pixel < 0) pixel = 0;
-        if (pixel > 1) pixel = 1;
-        pixel *= 255;
-
-        img.at<cv::Vec3b>(h, w)[c] = pixel;
-    }
-    cv::cvtColor(img, img, cv::COLOR_RGB2BGR);
-}
-
-// تبدیل تصویر به آرایه استاندارد
-
 
 /*
 پیکسل‌های تصویر به اعداد اعشاری تبدیل می‌شوند
