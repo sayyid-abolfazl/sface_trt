@@ -373,7 +373,7 @@ int main(int argc, char **argv) {
 
 
 
-    //
+    //You can post the output of the onnx model here to check the difference in the outputs.
 
 
     // بردارهای ویژگی نمونه
